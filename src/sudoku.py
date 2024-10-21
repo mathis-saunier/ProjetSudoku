@@ -1,20 +1,24 @@
 from abc import ABC, abstractmethod
 import numpy as np
+import sys
 
 class Sudoku:
-    taille = 9
-    grille = np.zeros((taille, taille), dtype=int)
 
-    def __init__(self) -> None:
+    def __init__(self, taille: int = 9) -> None:
+        taille = taille
+        grille = np.zeros((taille, taille), dtype=int)
+        pass
+
+    def remplirSudokuDepuisTxt(self, fichier: str) -> None:
         pass
 
     def caseEstVide(self, l: int, c: int) -> bool:
         pass
     
-    def fixerChiffre(self, chiffre: int, l: int, c: int):
+    def fixerChiffre(self, chiffre: int, l: int, c: int) -> None:
         pass
 
-    def effacerChiffre(self, l: int, c: int):
+    def effacerChiffre(self, l: int, c: int) -> None:
         pass
 
     def obtenirChiffre(self, l: int, c: int) -> int:
@@ -47,9 +51,10 @@ class Sudoku:
     def verifierSudoku(self) -> bool:
         pass
 
-    def afficherSudoku(self):
+    def afficherSudoku(self) -> None:
         pass
     
     @abstractmethod
     def resoudreSudoku(self) -> bool:
+        # sys.argv pour obtenir le -v quand on fait "python3 main.py -v"
         pass
